@@ -198,13 +198,14 @@ func (b *Board) IsCollide(component *Component) bool {
 }
 
 func (b *Board) DropComponent() {
-	b.IsPlaced = false
 	for !b.IsCollide(b.CurrentComponent) && !b.IsOutBounds(b.CurrentComponent) {
 		b.CurrentComponent.SavePrevious()
 		b.CurrentComponent.Move(0, 1)
 	}
 	fmt.Println("drop component", b.IsCollide(b.CurrentComponent), b.IsOutBounds(b.CurrentComponent))
 	b.CurrentComponent.Revert()
+
+	b.IsPlaced = false
 
 	b.CurrentComponent.IsPlaced = true
 	b.AddComponent(RandomComponent())

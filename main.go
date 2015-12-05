@@ -30,7 +30,7 @@ func DropHandler(b *Board, engine *DisplayEngine) {
 		if b.IsGameOver || (b.IsPlaced && !b.CurrentComponent.HasPrevious()) {
 			b.IsGameOver = true
 			b.GameOver(engine)
-			os.Exit(1)
+			os.Exit(2)
 		}
 
 		b.CurrentComponent.SavePrevious()
@@ -46,7 +46,7 @@ func DropHandler(b *Board, engine *DisplayEngine) {
 			if !b.CurrentComponent.Revert() {
 				b.IsGameOver = true
 				b.GameOver(engine)
-				return
+				os.Exit(3)
 			}
 
 			if wasPlaced {
