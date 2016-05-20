@@ -6,4 +6,4 @@ Tetris in golang because swag. Uses go-termbox.
 
 ## Contact
 
-stuartlarsen@yahoo-inc.com
+c0nrad@c0nrad.io
